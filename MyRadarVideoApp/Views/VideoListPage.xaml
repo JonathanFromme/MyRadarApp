@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MyRadarVideoApp.Views.VideoListPage"
+             Title="VideoListPage">
+    <VerticalStackLayout BackgroundColor="#2b2b2b">
+        <Label x:Name="lblNoItemsError" Text="No Items found. Click to retry." IsVisible="false" ></Label>
+        <Button x:Name="btnRefresh" HorizontalOptions="Start" WidthRequest="200" Text="Refresh" Clicked="btnRefresh_Clicked" IsVisible="false"></Button>
+        <ListView x:Name="videoListView"
+              Margin="20" 
+              ItemSelected="OnItemSelected">
+            <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Padding="20,0,0,0"
+                                 HorizontalOptions="StartAndExpand"
+                                 Orientation="Horizontal">
+                            <Label Text="{Binding title}" 
+                               VerticalTextAlignment="Center"
+                                   TextColor="#bbbbbb"/>
+                        </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+    </VerticalStackLayout>
+</ContentPage>
